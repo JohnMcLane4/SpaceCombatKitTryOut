@@ -1,0 +1,2 @@
+# GameStateSystem
+Game state system.

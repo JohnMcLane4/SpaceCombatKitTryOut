@@ -1,0 +1,45 @@
+
+This scene shows you how to set up firing of weapons (or any other triggerable modules) on a vehicle.
+
+The following steps detail how to build this scene from scratch.
+
+**** ADD A VEHICLE ****
+
+1. Add a vehicle mesh (such as a ship) to the scene and call it 'Vehicle'.
+2. Add a Vehicle component to the root transform.
+
+**** ADD TRIGGERABLES MANAGER TO THE VEHICLE ****
+
+1. Add a TriggerablesManager component to the root transform of the vehicle.
+
+**** ADD A GUN WEAPON ****
+
+1. Drag the provided 'EnergyProjectileWeapon_Fixed' prefab into the scene and position it to your liking.
+2. Add the new object to the 'StartingTriggerables' list in the inspector of the TriggerablesManager component.
+
+NOTE: Notice how the gun weapon already has a Triggerable component with the 'Default Trigger' value of 0. This is the trigger index the module will be assigned to.
+
+**** ADD A MISSILE WEAPON ****
+
+1. Drag the provided 'MissileWeapon' prefab into the scene and position it to your liking.
+2. Add the new object to the 'StartingTriggerables' list in the inspector of the TriggerablesManager component.
+
+NOTE: Notice how the missile weapon already has a Triggerable component with the 'Default Trigger' value of 1. This is the trigger index the module will be assigned to.
+
+**** ADD A TRIGGERABLES CONTROL SCRIPT ****
+
+1. Add a new game object to the scene and call it 'Triggerables Controls'.
+2. Add a PlayerTriggerablesInput script to it.
+3. Drag the ship (Vehicle component) into the 'Starting Vehicle field' of the PlayerTriggerablesInput script.
+4. Add two entries to the 'Trigger Inputs' list in the inspector of the PlayerTriggerablesInput script.
+5. Set the 'Trigger Index' of the first entry to 0 and the second entry to 1.
+6. Customize the controls in the inspector.
+
+
+That's all! If you run the scene, you can fire the triggerable modules with the controls you set up. 
+
+If you want to add the weapons via Module Mounts, follow the steps in the TUTORIAL_ModuleMounts text file for instructions on how to mount modules on your vehicle.
+
+See the other scenes in the SimpleDemos folder for more simple examples to get you started using the Space Combat Kit!
+
+

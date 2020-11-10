@@ -1,0 +1,33 @@
+
+This scene shows you how to set up enemy ship waves in your game.
+
+The following steps detail how to build this scene from scratch.
+
+**** ADD A WAVE ****
+
+1. Add a new gameobject to the scene and call it 'Wave'.
+2. If you are using a Floating Origin, place this gameobject as a child of it.
+3. Add a WaveController component and configure the settings in the inspector.
+
+**** ADD SPAWN POINTS TO THE WAVE ****
+
+1. Add a gameobject as a child of the Wave gameobject.
+2. Add a PilotedVehicleSpawner component and configure the settings in the inspector.
+3. Repeat until you have as many spawn points as you need.
+4. Add all of these spawners to the Spawners list on the WaveController component you added above.
+
+**** ADD MULTIPLE WAVES ****
+
+1. Add a new gameobject to the scene and call it 'WavesController'.
+2. Add a WavesController component to it.
+3. Add all the WaveControllers for each of the different waves to the Wave Controllers list in the inspector.
+
+**** SPAWN WAVES ON A TIMER ****
+
+1. Add a Timer component to the scene and configure the inspector settings.
+2. Add the Timer's StartTimer function to the On Wave Destroyed event on each of the Wave Controllers.
+3. Add the WavesController's SpawnNextWave function to the Timer's OnTimerFinished event.
+
+**** REPEAT WAVES WHEN ALL WAVES HAVE BEEN SPAWNED ****
+
+1. Make sure the Loop Waves checkbox is checked on the WavesController component.

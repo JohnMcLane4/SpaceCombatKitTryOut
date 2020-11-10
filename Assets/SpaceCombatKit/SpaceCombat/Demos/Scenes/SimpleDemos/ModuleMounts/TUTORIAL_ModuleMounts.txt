@@ -1,0 +1,56 @@
+
+This scene shows you how to set up a module mount on a vehicle.
+
+The following steps detail how to build this scene from scratch.
+
+**** ADD A VEHICLE ****
+
+1. Add a vehicle mesh (such as a ship) to the scene and call it 'Vehicle'.
+2. Add a Vehicle component to the root transform.
+
+**** ADD MODULE MOUNT TO THE VEHICLE ****
+
+1. Add a new game object as a child of the vehicle and call it 'Module Mount'.
+2. Add a ModuleMount component to it.
+3. Drag the ModuleMount component into the 'Module Mounts' list in the inspector of the Vehicle component.
+3. In the 'Module Types' list, make sure the type of module you want to load here (in this case 'GunWeapon') has been added.
+4. If you want the module mount to immediately load whatever module is available at the start, check the 'Mount First Available Module At Start' box.
+
+*** ADD A MODULE IN THE EDITOR ***
+
+1. Create the module or drag the prefab into the scene. For this example you can drag in the provided 'EnergyProjectileWeapon_Fixed' prefab.
+2. Check the 'Load Existing Child Modules' box.
+
+*** CREATE AND LOAD A MODULE PREFAB AT THE START ***
+
+1. Drag the provided 'EnergyProjectileWeapon_Fixed' prefab into the 'Default Module Prefabs' list.
+2. Check the 'Create Default Modules At Start' box.
+
+*** ADD A MODULE VIA CODE DURING GAMEPLAY ***
+
+1. Instantiate the module prefab in the scene.
+2. Grab its Module component using GetComponent.
+3. Call the 'AddMountableModule' function on the ModuleMount component, passing the Module component, and setting the 'mountImmediately' flag to True to replace the current module with the new one.
+
+[CODE]
+
+public ModuleMount myModuleMount;
+public Module modulePrefab;
+
+void Start()
+{
+	// Create the module
+	Module module = Instantiate(myModulePrefab) as Module;
+
+	// Mount the module
+	myModuleMount.AddMountableModule(module, myModulePrefab, true);
+}
+
+[/CODE]
+
+
+That's all! If you would like to fire the weapon, follow the steps in the TUTORIAL_Triggerables text file, skipping the 'ADD A GUN WEAPON' and 'ADD A MISSILE WEAPON' sections.
+
+See the other scenes in the SimpleDemos folder for more simple examples to get you started using the Space Combat Kit!
+
+

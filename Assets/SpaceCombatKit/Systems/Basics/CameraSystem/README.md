@@ -1,0 +1,2 @@
+# CameraSystemSubmodule
+Camera system submodule.
